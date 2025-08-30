@@ -1,0 +1,397 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 267 70% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 280 100% 97%;
+    --secondary-foreground: 267 70% 50%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 267 70% 95%;
+    --accent-foreground: 267 70% 50%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 267 70% 90%;
+    --input: 267 70% 90%;
+    --ring: 267 70% 50%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+  .font-cursive {
+    font-family: 'Great Vibes', cursive;
+  }
+}
+
+.hero-text-gradient {
+  background: linear-gradient(135deg, #7c3aed 0%, #9333ea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.countdown-item {
+  @apply flex flex-col items-center justify-center bg-white/80 backdrop-blur-sm rounded-lg p-3 sm:p-4 min-w-[70px] sm:min-w-[80px] shadow-lg;
+}
+
+.countdown-number {
+  @apply text-2xl sm:text-3xl font-bold text-primary;
+}
+
+.countdown-label {
+  @apply text-xs text-gray-600 uppercase tracking-wide;
+}
+
+.logo-container {
+  @apply relative inline-block;
+}
+
+.logo-crown {
+  @apply absolute -top-8 left-1/2 transform -translate-x-1/2 w-12 h-12 text-primary;
+}
+
+.tagline {
+  @apply text-primary font-serif text-base sm:text-lg mt-2;
+}
+
+/* Sparkle Background */
+.sparkle-bg {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 50%, #e0c3fc 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.sparkle-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.3) 0%, transparent 50%);
+  animation: sparkle 20s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Purple, Blue, and Pink Theme Gradients */
+.theme-gradient-primary {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6d28d9 100%);
+}
+
+.theme-gradient-secondary {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 50%, #1e40af 100%);
+}
+
+.theme-gradient-accent {
+  background: linear-gradient(135deg, #ec4899 0%, #db2777 50%, #be185d 100%);
+}
+
+.theme-gradient-mixed {
+  background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 25%, #ec4899 50%, #8b5cf6 75%, #3b82f6 100%);
+}
+
+/* Enhanced Section Backgrounds */
+.section-purple-bg {
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 50%, #d1d5db 100%);
+}
+
+.section-blue-bg {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #bfdbfe 100%);
+}
+
+.section-pink-bg {
+  background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #fbcfe8 100%);
+}
+
+/* Consistent Button Themes */
+.btn-theme-primary {
+  @apply bg-primary text-white hover:bg-primary/90;
+}
+
+.btn-theme-secondary {
+  @apply bg-blue-600 text-white hover:bg-blue-700;
+}
+
+.btn-theme-accent {
+  @apply bg-pink-600 text-white hover:bg-pink-700;
+}
+
+/* Card Themes */
+.card-theme-primary {
+  @apply bg-white border border-primary/20 shadow-lg hover:shadow-xl;
+}
+
+.card-theme-secondary {
+  @apply bg-white border border-blue-200 shadow-lg hover:shadow-xl;
+}
+
+.card-theme-accent {
+  @apply bg-white border border-pink-200 shadow-lg hover:shadow-xl;
+}
+
+/* Custom Scrollbar */
+
+/* Mobile-First Responsive Utilities */
+@layer utilities {
+  /* Responsive Typography */
+  .text-responsive-xs {
+    @apply text-xs sm:text-sm;
+  }
+  
+  .text-responsive-sm {
+    @apply text-sm sm:text-base;
+  }
+  
+  .text-responsive-base {
+    @apply text-base sm:text-lg;
+  }
+  
+  .text-responsive-lg {
+    @apply text-lg sm:text-xl md:text-2xl;
+  }
+  
+  .text-responsive-xl {
+    @apply text-xl sm:text-2xl md:text-3xl;
+  }
+  
+  .text-responsive-2xl {
+    @apply text-2xl sm:text-3xl md:text-4xl;
+  }
+  
+  .text-responsive-3xl {
+    @apply text-3xl sm:text-4xl md:text-5xl;
+  }
+
+  /* Responsive Spacing */
+  .spacing-responsive-sm {
+    @apply p-3 sm:p-4 md:p-6;
+  }
+  
+  .spacing-responsive-md {
+    @apply p-4 sm:p-6 md:p-8;
+  }
+  
+  .spacing-responsive-lg {
+    @apply p-6 sm:p-8 md:p-12;
+  }
+
+  /* Responsive Margins */
+  .margin-responsive-sm {
+    @apply mb-4 sm:mb-6 md:mb-8;
+  }
+  
+  .margin-responsive-md {
+    @apply mb-6 sm:mb-8 md:mb-12;
+  }
+  
+  .margin-responsive-lg {
+    @apply mb-8 sm:mb-12 md:mb-16;
+  }
+
+  /* Mobile-First Grid Layouts */
+  .grid-responsive-1-2 {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6;
+  }
+  
+  .grid-responsive-1-2-3 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8;
+  }
+  
+  .grid-responsive-1-3 {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6;
+  }
+  
+  .grid-responsive-2-4 {
+    @apply grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4;
+  }
+
+  /* Container with responsive padding */
+  .container-responsive {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Responsive Sections */
+  .section-responsive {
+    @apply py-12 sm:py-16 md:py-20;
+  }
+  
+  .section-responsive-sm {
+    @apply py-8 sm:py-12 md:py-16;
+  }
+  
+  .section-responsive-xs {
+    @apply py-3 sm:py-8 md:py-16;
+  }
+
+  /* Mobile-friendly buttons */
+  .btn-responsive {
+    @apply w-full sm:w-auto px-6 py-3 text-sm sm:text-base;
+  }
+
+  /* Responsive flex layouts */
+  .flex-responsive-col {
+    @apply flex flex-col sm:flex-row gap-4 sm:gap-6;
+  }
+  
+  .flex-responsive-center {
+    @apply flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6;
+  }
+
+  /* Image responsive utilities */
+  .img-responsive {
+    @apply w-full h-auto object-cover;
+  }
+  
+  .img-responsive-square {
+    @apply w-full h-48 sm:h-56 md:h-64 object-cover;
+  }
+  
+  .img-responsive-hero {
+    @apply w-full h-full object-cover object-center;
+  }
+
+  /* Card responsive layouts */
+  .card-responsive {
+    @apply bg-white rounded-lg sm:rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-4 sm:p-6;
+  }
+  
+  .card-responsive-lg {
+    @apply bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 sm:p-8 md:p-10;
+  }
+
+  /* Mobile navigation improvements */
+  .nav-responsive {
+    @apply flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4;
+  }
+
+  /* Form responsive layouts */
+  .form-responsive {
+    @apply space-y-4 sm:space-y-6;
+  }
+  
+  .form-group-responsive {
+    @apply flex flex-col sm:flex-row gap-2 sm:gap-4;
+  }
+
+  /* Responsive text alignment */
+  .text-responsive-center {
+    @apply text-left sm:text-center;
+  }
+  
+  .text-responsive-left {
+    @apply text-center sm:text-left;
+  }
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 640px) {
+  /* Improve touch targets */
+  button, .btn, a[role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Better modal/dialog sizing */
+  .modal-mobile {
+    margin: 1rem;
+    max-height: calc(100vh - 2rem);
+  }
+  
+  /* Improved form inputs */
+  input, textarea, select {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  /* Better table responsiveness */
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Fix hero image on mobile */
+  .img-responsive-hero {
+    height: 100%;
+    object-position: center 40%;
+  }
+}
+
+/* Tablet-specific improvements */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .tablet-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .tablet-text-lg {
+    font-size: 1.125rem;
+  }
+}
+
+/* Desktop improvements */
+@media (min-width: 1025px) {
+  .desktop-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .desktop-max-width {
+    max-width: 1200px;
+  }
+}
+
+/* Responsive Images */
+.img-responsive { @apply w-full h-auto; }
+.img-responsive-hero {
+  @apply w-full h-full object-cover object-center;
+}
+@media (max-width: 640px) {
+  .img-responsive-hero {
+    height: 100%;
+    object-position: center 40%;
+  }
+}
+
+/* Enhanced Mobile Hero Section */
+@media (max-width: 640px) {
+  .hero-mobile {
+    height: 60vh;
+    min-height: 400px;
+  }
+  
+  .hero-mobile img {
+    object-position: center 40%;
+  }
+}
+
+/* Desktop Hero Image Optimization */
+@media (min-width: 641px) {
+  .img-responsive-hero {
+    object-position: center 35%;
+  }
+}

@@ -1,0 +1,50 @@
+[build]
+  publish = "dist"
+  functions = "netlify/functions"
+  command = ""
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Production environment variables (set these in Netlify dashboard)
+# STRIPE_SECRET_KEY = "your_stripe_secret_key_here"
+# STRIPE_PUBLISHABLE_KEY = "your_stripe_publishable_key_here"
+
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Headers = "Content-Type"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Headers = "Content-Type"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+
+[context.production.environment]
+  STRIPE_PUBLISHABLE_KEY = "your_stripe_publishable_key_here"
+  STRIPE_SECRET_KEY = "your_stripe_secret_key_here"
+
+[context.deploy-preview.environment]
+  STRIPE_PUBLISHABLE_KEY = "your_stripe_publishable_key_here"
+  STRIPE_SECRET_KEY = "your_stripe_secret_key_here"
+
+[context.branch-deploy.environment]
+  STRIPE_PUBLISHABLE_KEY = "your_stripe_publishable_key_here"
+  STRIPE_SECRET_KEY = "your_stripe_secret_key_here" 

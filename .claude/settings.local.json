@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git remote add:*)",
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "Bash(git checkout:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(gh repo view:*)",
+      "Bash(git ls-tree:*)",
+      "Bash(git config:*)",
+      "Bash(git remote remove:*)",
+      "Bash(git check-ignore:*)",
+      "Bash(rm:*)",
+      "Bash(git init:*)",
+      "Bash(git branch:*)"
+    ],
+    "deny": [],
+    "ask": [],
+    "defaultMode": "acceptEdits"
+  }
+}

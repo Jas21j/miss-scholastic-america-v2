@@ -1,0 +1,34 @@
+# Miss Scholastic America Website - Payment & Email Fixes
+
+## Project Overview
+Fix critical payment and email functionality issues in the Miss Scholastic America website application.
+
+## Current Issues
+1. Stripe payment integration failing with "payment failed the string did not match the expected pattern@stripe.env" error
+2. Application submissions not being sent to Miss Scholastic America email
+3. Payment processing not connecting to correct Stripe dependencies
+
+## Requirements
+
+### Payment System
+- Fix Stripe payment integration using live API keys from stripe.env file
+- Ensure payment processing works for both application fees ($95) and entry fees
+- Validate payment success and handle errors properly
+- Test both embedded checkout and payment intent flows
+
+### Email System
+- Ensure all application submissions are sent to missscholasticamerica@gmail.com
+- Fix EmailJS integration for form submissions
+- Include all form data in email notifications
+- Add payment confirmation details to emails
+
+### Dependencies
+- Update Stripe configuration with correct API keys
+- Verify EmailJS service is properly configured
+- Test all payment and email flows end-to-end
+
+## Success Criteria
+- Payment processing works without errors
+- Application submissions successfully send emails
+- Both application and entry fee payments function correctly
+- Email notifications include all required information 

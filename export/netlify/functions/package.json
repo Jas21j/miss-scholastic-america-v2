@@ -1,0 +1,8 @@
+{
+  "name": "miss-scholastic-america-functions",
+  "version": "1.0.0",
+  "description": "Netlify Functions for Miss Scholastic America",
+  "dependencies": {
+    "stripe": "^14.21.0"
+  }
+} 
